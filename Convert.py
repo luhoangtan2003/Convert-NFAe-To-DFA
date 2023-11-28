@@ -29,7 +29,7 @@ class NFAε:
         self.F = set()
 
     def Import(self):
-        with open("Grap_1.txt", 'r') as File:
+        with open("Graph_3.txt", 'r') as File:
             Lines = File.readlines()
             Temp = Lines.pop(0)
             Temp = Temp.split()
@@ -89,10 +89,11 @@ class NFAε:
             Closed.append(q)
             for c in self.Σ:
                 Next = self.ε_closure(self.Move(q,c))
-                if Next not in IsOpen and Next not in Closed:
+                if Next not in IsOpen and Next not in Closed and len(Next) != 0:
                     IsOpen.append(Next)
                 print(f"    ε_closure(δ({q}, {c})) = ε_closure({self.Move(q, c)}) = {Next}\n")
-                Result.δ[tuple(q),c] = Next
+                if len(Next) != 0:
+                    Result.δ[tuple(q),c] = Next
         Result.Q = copy.deepcopy(Closed)
         Result.Q0 = copy.deepcopy(Start)
         for State_End in Closed:

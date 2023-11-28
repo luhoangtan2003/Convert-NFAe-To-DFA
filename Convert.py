@@ -83,7 +83,7 @@ class NFAε:
         Start = self.ε_closure({self.Q0})
         IsOpen.append(Start)
         print("Chuyển đổi từ NFAε sang DFA\n")
-        print(f"    Trạng thái bắt đầu DFA: ε{self.Q0} = {Start}\n")
+        print(f"    Trạng thái bắt đầu DFA: ε_closure({self.Q0}) = {Start}\n")
         while len(IsOpen) != 0:
             q = IsOpen.pop(0)
             Closed.append(q)

@@ -29,7 +29,7 @@ class NFAε:
         self.F = set()
 
     def Import(self):
-        with open("Graph_3.txt", 'r') as File:
+        with open("Graph_1.txt", 'r') as File:
             Lines = File.readlines()
             Temp = Lines.pop(0)
             Temp = Temp.split()
